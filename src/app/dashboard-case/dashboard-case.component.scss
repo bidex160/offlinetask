@@ -1,0 +1,58 @@
+.case {
+  height: 100vh;
+  background: #f9f9f9;
+  padding: 8px;
+  display: flex;
+  overflow-y: hidden;
+}
+.sidenav {
+  width: 260px;
+  margin-right: 8px;
+  transition: width 400ms;
+
+}
+.toggle {
+  display: none;
+}
+.toggle img {
+  width: 25px;
+}
+
+.content {
+  background: #fff;
+
+  height: 100%;
+  margin: 0 0 0 0;
+  flex: 1;
+  border-radius: 16px;
+  border: 1px solid #eaecf0;
+  background: #fff;
+  overflow-y: scroll;
+}
+.sidenavmobile {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 100;
+}
+@media (max-width: 767px) {
+  .content {
+    padding: 0;
+  }
+  .sidenav {
+    display: none;
+  }
+  .toggle {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+}
+
+
+app-nav {
+  width: 100%;
+}

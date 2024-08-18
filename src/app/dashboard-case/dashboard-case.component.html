@@ -1,0 +1,17 @@
+<div class="case">
+  <div class="sidenav">
+    <app-nav/>
+  </div>
+  @if (sidebarExpanded) {
+    <div class="sidenavmobile">
+      <app-nav  (navAction)="actionClicked()"/>
+    </div>
+  }
+ 
+  <div class="content" [ngClass]="{ sidebarExpanded: sidebarExpanded }">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="toggle" (click)="sidebarExpanded = !sidebarExpanded">
+    <img src="assets/icons/menu.png" />
+  </div>
+</div>

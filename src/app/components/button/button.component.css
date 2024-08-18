@@ -1,10 +1,8 @@
 .button {
-  /* Text/Button/md */
-  font-family: "Geist_R";
+
   border: 0;
   cursor: pointer;
   border-radius: 8px;
-  border: 1px solid  #00a45e;
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   display: flex;
   padding: 6px 14px;

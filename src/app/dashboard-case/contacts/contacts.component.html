@@ -1,0 +1,39 @@
+<div class="h-full w-full flex flex-col items-center overflow-y-auto rounded-2xl 	">
+  <h4 class="font-bold text-3xl mt-[60px] mb-6">Add Contact</h4>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-3">
+    <app-input label="Name" name="name" [form]="form"/>
+    <app-input label="Phone Number" name="phoneNo" [form]="form"/>
+    <app-input label="Email" name="email" type="email" [form]="form"/>
+    @for (nform of fArray.controls; track nform; let idx = $index) {
+      <div class="w-full grid grid-cols-6 gap-4">
+        <div class="col-span-4">
+          <app-input
+            [form]="$any(nform)"
+            name="address"
+            label="Address"
+            placeholder="Address"
+          />
+          </div>
+          @if (fArray.length < 5) {
+            <div class="col-span-1 flex items-center mt-5  cursor-pointer" (click)="addAddress()">
+              <img src="assets/icons/in-plus.svg" class="w-[20px]"/> 
+            </div>
+          }
+          <div class="col-span-1 flex items-center  mt-5 cursor-pointer" (click)="removeAddress(idx)">
+            <img src="assets/icons/in-close.svg" class="w-[20px]"/>
+          </div>
+             
+    </div>
+    }
+    <app-input label="Longitude" name="longitude" [readonly]="true" [form]="form"/>
+    <app-input label="Latitude" name="latitude" [readonly]="true"  [form]="form"/>
+
+  </div>
+  <div class="w-full md:w-[300px] mt-8">
+    <app-button label="Submit" [disabled]="!form.valid" (onClick)="submit()" />
+
+  </div>
+
+
+</div>

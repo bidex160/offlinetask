@@ -1,0 +1,59 @@
+<div class="h-full w-full flex flex-col items-center overflow-y-hiddden rounded-2xl	">
+    <div class="tabHead bg-[#F2F4F7] rounded-[8px] mt-[60px] mb-6 w-fit p-[2px]">
+        <div (click)="tab = 1" class=" text-gray-700 cursor-pointer py-[6px] px-10 rounded-[10px]	" [ngClass]="{'active': tab == 1}">Table</div>
+        <div (click)="tab = 2; initMap()" class=" text-gray-700 cursor-pointer py-[6px] px-10	rounded-[10px]" [ngClass]="{'active': tab == 2}">Map</div>
+     </div>
+
+      
+     <div class="w-full px-10 mt-6">
+        @if (tab === 2) {
+            <div id="map" style="height: 500px; width: 100%;"></div>
+
+        }@else {
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="position">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let element; let i =index;"> {{i+1}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="phoneNo">
+                  <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+                  <td mat-cell *matCellDef="let element"> {{element.phoneNo}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef> Email </th>
+                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                  <ng-container matColumnDef="addresses">
+                    <th mat-header-cell *matHeaderCellDef> Address </th>
+                    <td mat-cell *matCellDef="let element">
+                      <p [innerHTML]="element.addresses|arrayToString"></p>
+                     </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="longitude">
+                    <th mat-header-cell *matHeaderCellDef> Longitude </th>
+                    <td mat-cell *matCellDef="let element"> {{element.longitude}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="latitude">
+                    <th mat-header-cell *matHeaderCellDef> latitude </th>
+                    <td mat-cell *matCellDef="let element"> {{element.latitude}} </td>
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        }
+       
+          
+     </div>
+</div>

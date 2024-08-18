@@ -1,0 +1,15 @@
+
+
+.tabHead {
+  display: inline-flex;
+  align-items: flex-start;
+}
+.tabHead div{
+box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+.tabHead .active{
+  background: #fff !important;
+}
+p{
+  white-space: break-spaces;
+}

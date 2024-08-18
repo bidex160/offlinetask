@@ -7,10 +7,10 @@ import { ActivatedRoute, NavigationEnd, Router, Scroll } from '@angular/router';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-  activeTab = 'index';
-  expandSettings: boolean = false;
-  isCollpase: boolean = false;
-  showAccountMenu: boolean = false
+  activeTab = 'dashboard';
+
+  @Output() navAction: EventEmitter<any> = new EventEmitter();
+
   constructor(
     private route: ActivatedRoute,
     private router: Router
@@ -32,5 +32,6 @@ export class NavComponent implements OnInit {
   routeTo(route: any) {
     this.activeTab = route;
     this.router.navigate(['/', 'app', route]);
+    this.navAction.emit(route);
   }
 }

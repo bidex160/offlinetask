@@ -4,7 +4,6 @@
 
    @case ('textarea') {
 
-  <!-- TEXTAREA -->
     <label *ngIf="label">{{ label }} </label>
       <textarea
         [formControlName]="name"
@@ -19,23 +18,6 @@
       ></textarea>
 
     }
-    @case ('phone') {
-
-  <!-- PHONE NUMBER -->
-    <label *ngIf="label">{{ label }} </label>
-      <div class="preNum">+234</div>
-      <input
-        type="number"
-        [placeholder]="placeholder"
-        [formControlName]="name"
-        [readonly]="readonly"
-        value="{{ __value }}"
-        (change)="inputChange($event)"
-        [ngClass]="{
-          readonly: readonly,
-        }"
-      />
-    }
     @default {
       <label *ngIf="label">{{ label }} </label>
       <input
@@ -49,8 +31,6 @@
           readonly: readonly,
          }"
       />
-      <!-- 'active': inputFocused   -->
-
     }
 
 }
