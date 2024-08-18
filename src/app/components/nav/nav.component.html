@@ -1,0 +1,35 @@
+<nav
+  id="navbar-example3"
+  class="navbar flex flex-col"
+  [ngStyle]="{ padding: isCollpase ? '0' : '0' }"
+>
+  <div class="menuwhitebg flex flex-col justify-center items-start relative pt-16 px-2">
+
+    <div class="menus">
+      <a
+        class="nav-link cursor-pointer"
+        [ngClass]="{'hover:bg-gray-50': activeTab !== 'dashboard'  }"
+        (click)="routeTo('dashboard')"
+      >
+        <img
+          src="assets/icons/dashboard.svg"
+        />
+        Dashboard</a
+      >
+      <a
+        class="nav-link nav-head cursor-pointer"
+        [ngClass]="{'hover:bg-gray-50': activeTab !== 'contacts' }"
+        (click)="routeTo('contacts')"
+      >
+        <img
+          src="assets/icons/contacts.svg"
+        />
+       Add Contact</a>
+
+  
+    
+    </div>
+    
+
+  </div>
+</nav>

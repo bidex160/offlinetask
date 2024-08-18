@@ -1,0 +1,59 @@
+<ng-container [formGroup]="form">
+<div>
+  @switch (type) {
+
+   @case ('textarea') {
+
+  <!-- TEXTAREA -->
+    <label *ngIf="label">{{ label }} </label>
+      <textarea
+        [formControlName]="name"
+        [required]="required"
+        [readonly]="readonly"
+        [placeholder]="placeholder"
+        rows="4"
+        cols="50"
+        (change)="inputChange($event)"
+        [ngClass]="{ readonly: readonly  }"
+
+      ></textarea>
+
+    }
+    @case ('phone') {
+
+  <!-- PHONE NUMBER -->
+    <label *ngIf="label">{{ label }} </label>
+      <div class="preNum">+234</div>
+      <input
+        type="number"
+        [placeholder]="placeholder"
+        [formControlName]="name"
+        [readonly]="readonly"
+        value="{{ __value }}"
+        (change)="inputChange($event)"
+        [ngClass]="{
+          readonly: readonly,
+        }"
+      />
+    }
+    @default {
+      <label *ngIf="label">{{ label }} </label>
+      <input
+        [type]="type"
+        [placeholder]="placeholder"
+        [formControlName]="name"
+        [readonly]="readonly"
+        value="{{ __value }}"
+        (change)="inputChange($event)"
+        [ngClass]="{
+          readonly: readonly,
+         }"
+      />
+      <!-- 'active': inputFocused   -->
+
+    }
+
+}
+</div>
+
+</ng-container>
